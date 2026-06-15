@@ -70,7 +70,7 @@ export function CheckoutPage({ plan, onBack }: { plan: Plan; onBack: () => void 
         plan.priceCents,
       )}. Segue o comprovante em anexo.`,
     )
-    window.open(`https://wa.me/5583999948931?text=${msg}`, "_blank")
+    window.open(`https://wa.me/5583999748931?text=${msg}`, "_blank")
   }
 
   return (
