@@ -4,7 +4,10 @@ import { useTranslation } from "react-i18next"
 import { ArrowRight, MessageCircle } from "lucide-react"
 import { formatBRL, type Plan } from "@/lib/plans"
 
-export function BottomCta({ plan }: { plan: Plan }) {
+const STARTER_WHATSAPP =
+  "https://wa.me/5583999748931?text=Ol%C3%A1!%20Vim%20pela%20AVXStore%20e%20gostaria%20de%20solicitar%20um%20per%C3%ADodo%20de%20teste%20gr%C3%A1tis%20(Starter%20-%2015%20minutos)."
+
+export function BottomCta({ plan, onCheckout }: { plan: Plan; onCheckout: () => void }) {
   const { t } = useTranslation()
   const isFree = plan.priceCents === 0
 
@@ -18,7 +21,7 @@ export function BottomCta({ plan }: { plan: Plan }) {
 
         {isFree ? (
           <a
-            href="https://wa.me/5500000000000"
+            href={STARTER_WHATSAPP}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-2 rounded-full border border-emerald-500/30 bg-emerald-500/15 px-5 py-3 text-sm font-semibold text-emerald-300 transition-colors hover:bg-emerald-500/25"
@@ -29,6 +32,7 @@ export function BottomCta({ plan }: { plan: Plan }) {
         ) : (
           <button
             type="button"
+            onClick={onCheckout}
             className="inline-flex items-center gap-2 rounded-full bg-gradient-to-r from-primary to-indigo-600 px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-primary/30 transition-opacity hover:opacity-90"
           >
             {t("home.subscribe")} {plan.name}
