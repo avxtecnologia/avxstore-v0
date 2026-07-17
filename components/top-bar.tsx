@@ -1,8 +1,37 @@
 "use client"
 
+import { useState } from "react"
 import { useTranslation } from "react-i18next"
 import { Zap, Search, ShoppingCart } from "lucide-react"
 import { LanguageSwitcher } from "@/components/language-switcher"
+
+function ProductTabs() {
+  const [showSoon, setShowSoon] = useState(false)
+
+  return (
+    <div className="relative hidden items-center gap-2 lg:flex">
+      <span className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-primary px-3.5 py-1.5 text-xs font-semibold text-white">
+        <Zap className="size-3.5" />
+        Lovable Turbo
+      </span>
+
+      <button
+        type="button"
+        onClick={() => setShowSoon((v) => !v)}
+        className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full border border-white/10 px-3.5 py-1.5 text-xs font-semibold text-muted-foreground transition-colors hover:border-primary/40 hover:text-foreground"
+      >
+        <span className="size-1.5 rounded-full bg-[#ff9752]" />
+        SupaCopy
+      </button>
+
+      {showSoon && (
+        <div className="absolute left-0 top-full z-10 mt-2 w-56 rounded-xl border border-white/10 bg-card p-3 text-xs leading-relaxed text-foreground shadow-xl">
+          <b className="text-[#ff9752]">Em breve.</b> O SupaCopy ainda está em desenvolvimento — assim que for lançado, essa aba leva direto pra ele.
+        </div>
+      )}
+    </div>
+  )
+}
 
 export function TopBar() {
   const { t } = useTranslation()
@@ -12,13 +41,15 @@ export function TopBar() {
       <div className="mx-auto flex h-16 max-w-7xl items-center gap-4 px-4 sm:px-6">
         {/* Logo */}
         <a href="#" className="flex items-center gap-2 font-bold text-lg shrink-0">
-          <span className="flex size-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-indigo-600 shadow-lg shadow-primary/30">
+          <span className="flex size-9 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-[#ff9752] shadow-lg shadow-primary/30">
             <Zap className="size-5 text-white" />
           </span>
           <span className="tracking-tight">
             AVX<span className="text-primary">Store</span>
           </span>
         </a>
+
+        <ProductTabs />
 
         {/* Search */}
         <div className="relative mx-auto hidden w-full max-w-md md:block">
