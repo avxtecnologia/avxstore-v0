@@ -8,6 +8,9 @@ export function VideoDemoSection() {
         Veja como funciona
       </h2>
       <p className="mt-3 text-muted-foreground">
+        Desbloqueie todo o potencial da extensão com prompts ilimitados, suporte dedicado e atualizações contínuas.
+      </p>
+      <p className="mt-1 text-muted-foreground">
         Assista ao tutorial completo de como usar a extensão.
       </p>
       <div className="mt-8 overflow-hidden rounded-2xl border border-border shadow-lg shadow-primary/10">
