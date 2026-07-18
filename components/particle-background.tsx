@@ -29,8 +29,8 @@ export function ParticleBackground() {
       particles = Array.from({ length: count }, () => ({
         x: Math.random() * W,
         y: Math.random() * H,
-        vx: (Math.random() - 0.5) * 0.18,
-        vy: (Math.random() - 0.5) * 0.18,
+        vx: (Math.random() - 0.5) * 0.5,
+        vy: (Math.random() - 0.5) * 0.5,
         r: 1 + Math.random() * 1.6,
       }))
     }
@@ -67,10 +67,10 @@ export function ParticleBackground() {
             p.vy += (dy / dist) * force
           }
         }
-        p.vx += (Math.random() - 0.5) * 0.02
-        p.vy += (Math.random() - 0.5) * 0.02
-        p.vx *= 0.93
-        p.vy *= 0.93
+        p.vx += (Math.random() - 0.5) * 0.05
+        p.vy += (Math.random() - 0.5) * 0.05
+        p.vx *= 0.985
+        p.vy *= 0.985
         p.x += p.vx
         p.y += p.vy
         if (p.x < 0) { p.x = 0; p.vx *= -0.6 }
